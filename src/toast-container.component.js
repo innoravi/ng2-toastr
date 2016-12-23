@@ -57,6 +57,8 @@ System.register(['@angular/core', './toast-options'], function(exports_1, contex
                     });
                 };
                 ToastContainer.prototype.dismiss = function (toast) {
+                    localStorage.setItem('sysNotification',toast.uniqueid);
+                    
                     if (!this.autoDismiss) {
                         this.removeToast(toast.id);
                     }
@@ -76,7 +78,7 @@ System.register(['@angular/core', './toast-options'], function(exports_1, contex
                 ToastContainer = __decorate([
                     core_1.Component({
                         selector: 'toast-container',
-                        template: "\n    <div id=\"toast-container\" [style.position]=\"position\" class=\"{{positionClass}}\">\n      <div *ngFor=\"let toast of toasts\" class=\"toast-{{toast.type}}\" (click)=\"dismiss(toast)\">\n        <div *ngIf=\"toast.title\" class=\"{{titleClass}}\">{{toast.title}}</div>\n        <div class=\"{{messageClass}}\">{{toast.message}}</div>\n      </div>\n    </div>\n    ",
+                        template: "\n    <div id=\"toast-container\" [style.position]=\"position\" class=\"{{positionClass}}\">\n      <div *ngFor=\"let toast of toasts\" class=\"toast-{{toast.type}}\" >\n        <div *ngIf=\"toast.title\" class=\"{{titleClass}}\">{{toast.title}}</div>\n        <div class=\"{{messageClass}}\">{{toast.message}}<button type=\"button\" id=\"okBtn\" class=\"small-button red icon-x\" (click)=\"dismiss(toast)\"></button></div>\n      </div>\n    </div>\n    ",
                     }),
                     __param(0, core_1.Optional()),
                     __param(0, core_1.Inject(toast_options_1.ToastOptions)), 

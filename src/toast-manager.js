@@ -91,6 +91,7 @@ System.register(['@angular/core', './toast-container.component', './toast-option
                     this.container = null;
                 };
                 ToastsManager.prototype.error = function (message, title) {
+                    this.options.autoDismiss = true;     
                     var toast = new toast_1.Toast('error', message, title);
                     this.show(toast);
                 };
@@ -99,12 +100,19 @@ System.register(['@angular/core', './toast-container.component', './toast-option
                     this.show(toast);
                 };
                 ToastsManager.prototype.success = function (message, title) {
+                    this.options.autoDismiss = true;     
                     var toast = new toast_1.Toast('success', message, title);
                     this.show(toast);
                 };
                 ToastsManager.prototype.warning = function (message, title) {
                     var toast = new toast_1.Toast('warning', message, title);
                     this.show(toast);
+                };
+                ToastsManager.prototype.systemNotification = function (type="warning", message, title, uniqueid) {
+                    var toast = new toast_1.Toast(type, message, title, uniqueid);
+                    this.options.autoDismiss = false;
+                    this.show(toast);
+
                 };
                 ToastsManager = __decorate([
                     core_1.Injectable(),
