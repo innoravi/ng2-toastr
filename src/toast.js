@@ -6,10 +6,11 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Toast = (function () {
-                function Toast(type, message, title) {
+                function Toast(type, message, title, uniqueid) {
                     this.type = type;
                     this.message = message;
                     this.title = title;
+                    this.uniqueid = uniqueid;
                 }
                 return Toast;
             }());

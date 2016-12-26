@@ -96,6 +96,7 @@ System.register(['@angular/core', './toast-container.component', './toast-option
                     this.show(toast);
                 };
                 ToastsManager.prototype.info = function (message, title) {
+                    this.options.autoDismiss = true;      
                     var toast = new toast_1.Toast('info', message, title);
                     this.show(toast);
                 };

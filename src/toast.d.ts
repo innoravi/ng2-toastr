@@ -3,5 +3,6 @@ export declare class Toast {
     message: string;
     title: string;
     id: number;
-    constructor(type: string, message: string, title?: string);
+    uniqueid: number;
+    constructor(type: string, message: string, title?: string, uniqueid?: number);
 }

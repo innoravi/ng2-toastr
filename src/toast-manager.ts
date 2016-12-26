@@ -91,4 +91,9 @@ export class ToastsManager {
     let toast = new Toast('warning', message, title);
     this.show(toast);
   }
+
+  systemNotification(type: string, message: string, title?: string, uiqueid?: string) {
+    let toast = new Toast(type, message, title, uiqueid);
+    this.show(toast);
+  }
 }
